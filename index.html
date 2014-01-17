@@ -172,7 +172,7 @@
 
         <script src="http://d3js.org/d3.v3.min.js"></script>
         <script>
-        
+
         var SVGPreloader = function ( canvas ){ 
 
             var appear_duration = 1000;
@@ -222,9 +222,9 @@
         d3.select(svg).on("click", function(d,i) {
 
             //set spinner coorditates according to mouse
-            d3.select('#spinner-container svg')
-              .attr('x', d3.mouse(this)[0] - 40)
-              .attr('y', d3.mouse(this)[1])
+            var spinner = d3.select('#spinner-container svg');
+              spinner.attr('x', d3.mouse(this)[0] - (parseInt(spinner.attr('width'),  10) / 2))
+                     .attr('y', d3.mouse(this)[1] - (parseInt(spinner.attr('height'), 10) / 2));
             preloader.showPreloader();
 
             //hide after two seconds
